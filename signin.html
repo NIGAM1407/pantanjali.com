@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <style>
+    body { background: #f8f9fa; }
+    .form-container { max-width: 400px; margin: 50px auto; padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/babel">
+    function SignIn() {
+      return (
+        <div className="form-container">
+          <h2 className="text-center mb-4">Sign In</h2>
+          <form action="index.html">
+            <div className="mb-3">
+              <label className="form-label">Email</label>
+              <input type="email" className="form-control" required />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input type="password" className="form-control" required />
+            </div>
+            <button type="submit" className="btn btn-primary w-100">Sign In</button>
+          </form>
+        </div>
+      );
+    }
+    ReactDOM.render(<SignIn />, document.getElementById("root"));
+  </script>
+</body>
+</html>

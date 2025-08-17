@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+</head>
+<body style="background:#f8f9fa">
+  <div id="root"></div>
+
+  <!-- React + ReactDOM + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    function SignUp() {
+      return (
+        <div className="container my-5">
+          <div className="mx-auto p-4 rounded shadow bg-white" style={{maxWidth:"550px"}}>
+            <h2 className="text-center mb-4">Sign Up</h2>
+            <form action="verify.html">
+              <div className="mb-3">
+                <label className="form-label">Name</label>
+                <input type="text" className="form-control" required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input type="email" className="form-control" required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Password</label>
+                <input type="password" className="form-control" required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Address</label>
+                <textarea className="form-control" rows="2" required></textarea>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Pincode</label>
+                <input type="text" className="form-control" required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Country</label>
+                <input type="text" className="form-control" required />
+              </div>
+              <button type="submit" className="btn btn-success w-100">Sign Up</button>
+            </form>
+            <p className="mt-3 text-center">
+              Already have an account? <a href="signin.html">Sign In</a>
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<SignUp />);
+  </script>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

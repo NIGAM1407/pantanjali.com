@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payment - Patanjali Product</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+</head>
+<body style="background:#f8f9fa">
+  <div id="root"></div>
+
+  <!-- React 18 UMD + Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // ---------- Navbar ----------
+    function Navbar() {
+      return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success py-3 shadow ">
+          <div className="container">
+            <a className="navbar-brand d-flex align-items-center fs-3 fw-bold" href="index.html">
+              <img
+                src="./img/1.jpg"
+                alt="Pantangali Logo"
+                width="80"
+                height="50"
+                className="me-2 rounded"
+              />
+              Patanjali
+            </a>
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto fs-5">
+                <li className="nav-item"><a className="nav-link text-white" href="index.html#home">Home</a></li>
+                <li className="nav-item"><a className="nav-link text-white" href="products.html">Products</a></li>
+                <li className="nav-item"><a className="nav-link text-white" href="#about">About</a></li>
+                <li className="nav-item"><a className="nav-link text-white" href="#services">Services</a></li>
+                <li className="nav-item"><a className="nav-link text-white" href="#contact">Contact Us</a></li>
+              </ul>
+              <a href="signup.html" className="btn btn-light btn-lg ms-3">Sign In</a>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    // ---------- Payment Section ----------
+    function PaymentSection() {
+      const cartItem = JSON.parse(localStorage.getItem("cartItem")) || {
+        title: "Patanjali Product",
+        priceDisplay: "₹320"
+      };
+
+      const [method, setMethod] = React.useState("cod");
+
+      const handlePayment = () => {
+        if (method === "cod") {
+          alert("Order placed successfully with Cash on Delivery!");
+        } else {
+          alert("Redirecting to secure online payment gateway...");
+        }
+      };
+
+      return (
+        <section className="container my-5">
+          <div className="row">
+            {/* Left side - Payment options */}
+            <div className="col-lg-8">
+              <div className="card shadow p-4 mb-4">
+                <h3 className="fw-bold mb-3">Select Payment Method</h3>
+                <div className="list-group">
+
+                  {/* COD */}
+                  <label className="list-group-item d-flex align-items-center">
+                    <input
+                      type="radio"
+                      className="form-check-input me-2"
+                      name="paymentMethod"
+                      value="cod"
+                      checked={method === "cod"}
+                      onChange={(e) => setMethod(e.target.value)}
+                    />
+                    Cash on Delivery (Pay at your doorstep)
+                  </label>
+
+                  {/* Online Payment */}
+                  <label className="list-group-item d-flex align-items-center">
+                    <input
+                      type="radio"
+                      className="form-check-input me-2"
+                      name="paymentMethod"
+                      value="online"
+                      checked={method === "online"}
+                      onChange={(e) => setMethod(e.target.value)}
+                    />
+                    Online Payment (UPI / Debit Card / Credit Card / Net Banking)
+                  </label>
+                </div>
+
+                {/* If online selected → show options */}
+                {method === "online" && (
+                  <div className="mt-4">
+                    <h5 className="fw-bold">Choose Online Payment Option</h5>
+                    <select className="form-select mt-2">
+                      <option>UPI</option>
+                      <option>Debit Card</option>
+                      <option>Credit Card</option>
+                      <option>Net Banking</option>
+                    </select>
+                  </div>
+                )}
+
+                <button className="btn btn-success btn-lg mt-4" onClick={handlePayment}>
+                  Confirm & Pay
+                </button>
+              </div>
+            </div>
+
+            {/* Right side - Order Summary */}
+            <div className="col-lg-4">
+              <div className="card shadow p-4">
+                <h4 className="fw-bold mb-3">Order Summary</h4>
+                <p className="mb-1">{cartItem.title}</p>
+                <p className="text-success fw-bold fs-5">{cartItem.priceDisplay}</p>
+                <hr />
+                <p className="d-flex justify-content-between">
+                  <span>Delivery Charges</span>
+                  <span className="text-success">Free</span>
+                </p>
+                <p className="d-flex justify-content-between fw-bold fs-5">
+                  <span>Total</span>
+                  <span>{cartItem.priceDisplay}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // ---------- App ----------
+    function App() {
+      return (
+        <>
+          <Navbar />
+          <PaymentSection />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
