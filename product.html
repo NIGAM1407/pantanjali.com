@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Detail - Patanjali Product</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+</head>
+<body style="background:#f8f9fa">
+  <div id="root"></div>
+
+  <!-- React 18 UMD + Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // ---------- Navbar ----------
+     function Navbar() {
+      return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success py-3 shadow fixed-top">
+          <div className="container">
+            <a className="navbar-brand d-flex align-items-center fs-3 fw-bold" href="#">
+              <img
+                src="./img/1.jpg"
+                alt="Pantangali Logo"
+                width="80"
+                height="50"
+                className="me-2 rounded"
+              />
+              Pantangali
+            </a>
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto fs-5">
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="#home">Home</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="#products">Products</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="#about">About</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="#services">Services</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="#contact">Contact Us</a>
+                </li>
+              </ul>
+
+              <a href="signup.html" className="btn btn-light btn-lg ms-3">Sign In</a>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    // ---------- Product Detail ----------
+    function ProductDetail() {
+      const product = {
+        id: "patanjali-honey",
+        title: "Patanjali Pure Honey (1kg)",
+        price: 320,
+        priceDisplay: "₹320",
+        img: "./img/patanjali-honey.jpg", // change this image to your real product
+        description: "Patanjali Pure Honey is natural and rich with the goodness of minerals, vitamins, and enzymes. Helps boost immunity and digestion."
+      };
+
+      const handleBuyNow = () => {
+        localStorage.setItem("cartItem", JSON.stringify(product));
+        window.location.href = "payment.html";
+      };
+
+      return (
+        <section className="container my-5">
+          <div className="text-center mb-4">
+            <img src="./img/1.jpg" className="img-fluid rounded shadow" alt={product.title} style={{maxHeight:"400px"}} />
+          </div>
+
+          <div className="card shadow p-4">
+            <h1 className="fw-bold text-success">{product.title}</h1>
+            <p className="text-muted">{product.description}</p>
+
+            <div className="mt-3 mb-3">
+              <span className="fs-4 fw-bold text-success">{product.priceDisplay}</span>
+              <div className="text-muted small">Inclusive of taxes</div>
+            </div>
+
+            <ul className="mb-3">
+              <li>100% Natural & Ayurvedic</li>
+              <li>Rich in minerals and vitamins</li>
+              <li>Boosts immunity and energy</li>
+              <li>Trusted Patanjali product</li>
+            </ul>
+
+            <div className="d-flex gap-2">
+              <button className="btn btn-success btn-lg" onClick={handleBuyNow}>Buy Now</button>
+              <a href="main.html" className="btn btn-outline-secondary btn-lg">Back to Products</a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <Navbar />
+          <ProductDetail />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

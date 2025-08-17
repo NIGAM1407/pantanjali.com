@@ -27,8 +27,13 @@
     <script type="text/babel">
       /** NAVBAR **/
       function Navbar() {
+
+          const BuyNow = () => {
+        localStorage.setItem("cartItem", JSON.stringify(product));
+        window.location.href = "payment.html";
+      };
         return (
-          <nav className="navbar navbar-expand-lg navbar-dark bg-success py-3 shadow">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-success py-3 shadow  fixed-top">
             <div className="container">
               <a className="navbar-brand d-flex align-items-center fs-3 fw-bold" href="#">
                 <img
@@ -68,7 +73,8 @@
                     <a className="nav-link text-white" href="#contact">Contact Us</a>
                   </li>
                 </ul>
-                <button className="btn btn-light btn-lg ms-3">Sign In</button>
+                 <a href="signup.html" className="btn btn-light btn-lg ms-3">Sign In</a>
+                
               </div>
             </div>
           </nav>
@@ -82,16 +88,14 @@
             <div className="row align-items-center">
               <div className="col-md-6">
                 <h1 className="fw-bold display-4 text-success">
-                  Before they sold out <br /> readymade gluten
+                    Patanjali Ayurved - Nurturing Health, Embracing Tradition<br /> 
                 </h1>
                 <p className="mt-3 fs-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                  pariatur modi maxime voluptatum fuga? Aliquid magnam in
-                  doloremque eius corrupti laudantium voluptatem, ipsa, velit
-                  officiis pariatur ad id exercitationem quo?
+                Welcome to Patanjali Ayurved, where ancient wisdom meets modern wellness. Founded in 2006 by Baba Ramdev and Acharya Balkrishna, we are dedicated to creating a healthier society through the power of Ayurveda and Yoga. Our diverse range of natural, high-quality products—from herbal medicines and nutritious foods to personal care and home essentials—brings the blessings of nature into your life. Rooted in tradition and crafted with care, Patanjali empowers you to live a balanced, healthy, and happy life. Explore our offerings and join us in our mission to nourish India and the world with health, heritage, and happiness.
                 </p>
                 <div className="mt-4">
-                  <button className="btn btn-success btn-lg me-2">Buy Now</button>
+                   
+                  <button className="btn btn-success btn-lg me-2"   href="payment.html" >Buy Now</button>
                   <button className="btn btn-outline-success btn-lg">Learn More</button>
                 </div>
               </div>
@@ -111,15 +115,15 @@
       function Products() {
         const products = [
           { id: 1, name: "Organic Honey", price: "₹250", img: "./img/1.jpg" },
-          { id: 2, name: "Herbal Juice", price: "₹150", img: "./img/1.jpg" },
-          { id: 3, name: "Natural Oil", price: "₹350", img: "./img/1.jpg" },
-          { id: 4, name: "Ayurvedic Soap", price: "₹80", img: "./img/1.jpg" },
-          { id: 5, name: "Green Tea", price: "₹120", img: "./img/1.jpg" },
+          { id: 2, name: "Herbal Juice", price: "₹150", img: "./img/3.jpeg" },
+          { id: 3, name: "Natural Oil", price: "₹350", img: "./img/9.jpg" },
+          { id: 4, name: "Ayurvedic Soap", price: "₹80", img: "./img/8.jpg" },
+          { id: 5, name: "Green Tea", price: "₹120", img: "./img/7.jpg" },
           { id: 6, name: "Protein Powder", price: "₹999", img: "./img/1.jpg" },
-          { id: 7, name: "Face Cream", price: "₹220", img: "https://via.placeholder.com/300x200" },
-          { id: 8, name: "Shampoo", price: "₹180", img: "https://via.placeholder.com/300x200" },
-          { id: 9, name: "Body Lotion", price: "₹260", img: "https://via.placeholder.com/300x200" },
-          { id: 10, name: "Herbal Capsules", price: "₹400", img: "https://via.placeholder.com/300x200" },
+          { id: 7, name: "Face Cream", price: "₹220", img: "./img/5.jpeg" },
+          { id: 8, name: "Shampoo", price: "₹180", img: "./img/4.jpeg" },
+          { id: 9, name: "Body Lotion", price: "₹260", img: "./img/10.jpg" },
+          { id: 10, name: "Herbal Capsules", price: "₹400", img: "./img/10.jpg" },
           { id: 11, name: "Herbal Capsules", price: "₹400", img: "./img/1.jpg" },
           { id: 12, name: "Herbal Capsules", price: "₹400", img: "./img/1.jpg" },
         ];
@@ -255,12 +259,10 @@
                   Feel free to reach out to us with any questions or concerns.
                   We're here to help!
                 </p>
-                <p className="mb-1"><strong>Email:</strong> anilbhai@gmail.com</p>
-                <p className="mb-1"><strong>Phone:</strong> 8488821106</p>
+                <p className="mb-1"><strong>Email:</strong> patanjali@gmail.com</p>
+                <p className="mb-1"><strong>Phone:</strong> 123456789</p>
                 <p className="mb-0">
-                  <strong>Address:</strong> Plot No. 1 Bharat Nivash, Near Udhna
-                  Academy College Ranchhod Nagar, Harinagar-2, Harinagar, Udhana,
-                  Surat, Gujarat 394220
+                  <strong>Address:</strong> pantanjali company private limited ,amroli,surat,gujrat,394107
                 </p>
               </div>
 
